@@ -1,29 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, FlatList } from 'react-native';
 import List from '../../components/List';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
+import { openDatabase } from "react-native-sqlite-storage";
+
+// use hook to create database
+const shopperDB = openDatabase({name: 'Shopper.db'});
+const listsTableName = 'lists';
 
 const ListsScreen = props => {
 
   const navigation = useNavigation();
 
-  const [lists, setLists] = useState(
-    [
-      {
-        id: 1,
-        name: 'Grocery List',
-        store: 'Redners',
-        date: '2022-09-14',
-      },
-      {
-        id: 2,
-        name: 'Back To School List',
-        store: 'Staples',
-        date: '2022-09-15',
-      },
-    ]
-  );
+  const [lists, setLists] = useState([]);
 
   useEffect(() => {
     const listener = navigation.addListener('focus', () => {
@@ -33,7 +23,7 @@ const ListsScreen = props => {
       shopperDB.transaction(txn => {
         // execute SELECT
         txn.executeSql(
-          `SELECT * FROM ${listsTableNames}`,
+          `SELECT * FROM ${listsTableName}`,
           [],
           // callback function to handle the results from the
           // SELECT s
@@ -78,6 +68,7 @@ const ListsScreen = props => {
         <FlatList 
           data={lists}
           renderItem={({item}) => <List post={item} />}
+          keyExtractor={item => item.id}
         />
       </View>
         <View style={styles.bottom}>
