@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, TextInput, View, Pressable } from 'react-native'
+import { Text, TextInput, View, Pressable, Alert } from 'react-native'
 import styles from './styles'
 import { openDatabase } from "react-native-sqlite-storage";
 import { useNavigation } from '@react-navigation/native';
@@ -48,7 +48,31 @@ const ExistingListScreen = props => {
         navigation.navigate('Lists')
     }
     const onListDelete = () => {
-
+        Alert.alert("Confirm", "Are you sure you want to delete this list",
+        [
+            {
+                text: "yes",
+                onPress: () => {
+                    shopperDB.transaction(txn => {
+                        txn.executeSql(
+                            `Delete FROM ${listsTableName} WHERE id = ${post.id}`,
+                            [],
+                            () => {
+                                console.log(`${name} deleted successfully`)
+                            },
+                            error => {
+                                console.log('Error on deleting list' + error.message);
+                            }
+                        );
+                    });
+                    alert('List Deleted!')
+                    navigation.navigate('Start Shopping!')
+                }
+            },
+            {
+                text: "no"
+            }
+        ])
     }
     const onAddItem = () => {
 
