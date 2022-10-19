@@ -54,7 +54,7 @@ const ListsScreen = props => {
             }
           },
           error => {
-            console.log('Error getting listst ' + error.message);
+            console.log('Error getting lists ' + error.message);
           },
         )
       });
