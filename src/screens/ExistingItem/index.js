@@ -15,7 +15,7 @@ const ExistingItemScreen = props => {
 
     const [name, setName] = useState(post.name);
     const [price, setPrice] = useState(post.price);
-    const [quantity, setQuantity] = useState(post.quantity);
+    const [quantity, setQuantity] = useState(post.date);
 
     const onItemUpdate = () => {
         if (!name){
@@ -109,36 +109,20 @@ const ExistingItemScreen = props => {
                     placeholderTextColor={'grey'}
                 />
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
-                    style={styles.button}
+                    style={styles.deleteButton}
                     onPress={onItemDelete}
                     >
-                    <Text style={styles.deleteButton}>Delete</Text>
+                    <Text style={styles.buttonText}>Delete</Text>
                 </Pressable>
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
-                    style={styles.button}
+                    style={styles.updateButton}
                     onPress={onItemUpdate}
                     >
-                    <Text style={styles.updateButton}>Update</Text>
-                </Pressable>
-            </View>
-            <View style={styles.bottom}>
-                <Pressable 
-                    style={styles.button}
-                    onPress={onAddItem}
-                    >
-                    <Text style={styles.addButton}>Add Item</Text>
-                </Pressable>
-            </View>
-            <View style={styles.bottom}>
-                <Pressable 
-                    style={styles.viewButton}
-                    onPress={onViewList}
-                    >
-                    <Text style={styles.buttonText}>View Items</Text>
+                    <Text style={styles.buttonText}>Update</Text>
                 </Pressable>
             </View>
         </View>
