@@ -75,10 +75,10 @@ const ExistingListScreen = props => {
         ])
     }
     const onAddItem = () => {
-
+        navigation.navigate("Add List Item")
     }
     const onViewList = () => {
-
+        navigation.navigate("View List Item")
     }
 
     return (
@@ -109,31 +109,31 @@ const ExistingListScreen = props => {
                     placeholderTextColor={'grey'}
                 />
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
-                    style={styles.button}
+                    style={styles.deleteButton}
                     onPress={onListDelete}
                     >
-                    <Text style={styles.deleteButton}>Delete</Text>
+                    <Text style={styles.buttonText}>Delete</Text>
                 </Pressable>
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
-                    style={styles.button}
+                    style={styles.updateButton}
                     onPress={onListUpdate}
                     >
-                    <Text style={styles.updateButton}>Update</Text>
+                    <Text style={styles.buttonText}>Update</Text>
                 </Pressable>
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
-                    style={styles.button}
+                    style={styles.addButton}
                     onPress={onAddItem}
                     >
-                    <Text style={styles.addButton}>Add Item</Text>
+                    <Text style={styles.buttonText}>Add Item</Text>
                 </Pressable>
             </View>
-            <View style={styles.bottom}>
+            <View style={styles.bottomContainer}>
                 <Pressable 
                     style={styles.viewButton}
                     onPress={onViewList}
