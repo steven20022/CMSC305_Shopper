@@ -10,7 +10,7 @@ import { FlatList } from 'react-native-gesture-handler';
 const shopperDB = openDatabase({name: 'Shopper.db'});
 const itemsTableName = 'items';
 
-const ViewListItem = props => {
+const ViewListItems = props => {
 
   const navigation = useNavigation();
 
@@ -23,4 +23,4 @@ const ViewListItem = props => {
   );
 };
 
-export default ViewListItem;
+export default ViewListItems;
