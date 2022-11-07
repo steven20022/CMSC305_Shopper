@@ -27,7 +27,7 @@ const Router = props => {
         <Stack.Screen name={'Add List Item'} component={AddListItem}/>
         <Stack.Screen name={'Existing List'} component={ExistingListScreen}/>
         <Stack.Screen name={'Existing Item'} component={ExistingItemScreen}/>
-        <Stack.Screen name={'View List Item'} component={ViewListItems}/>
+        <Stack.Screen name={'View List Items'} component={ViewListItems}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
