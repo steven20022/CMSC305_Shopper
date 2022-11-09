@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 // use hook to create database
 const shopperDB = openDatabase({name: 'Shopper.db'});
 const listsTableName = 'lists';
+const listitemsTableName = 'list_items';
 
 const ExistingListScreen = props => {
     
@@ -62,6 +63,18 @@ const ExistingListScreen = props => {
                             },
                             error => {
                                 console.log('Error on deleting list' + error.message);
+                            }
+                        );
+                    });
+                    shopperDB.transaction(txn => {
+                        txn.executeSql(
+                            `Delete FROM ${listitemsTableName} WHERE list = ${post.id}`,
+                            [],
+                            () => {
+                                console.log('List items deleted successfully')
+                            },
+                            error => {
+                                console.log('Error on deleting list items' + error.message);
                             }
                         );
                     });
