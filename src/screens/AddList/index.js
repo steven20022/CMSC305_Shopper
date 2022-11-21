@@ -56,7 +56,9 @@ const AddList = props => {
                 placeholder={'Enter Store'}
                 placeholderTextColor={'grey'}
             />
-            <TextInput 
+            <TextInput
+                accessible
+                accessibilityLabel='Enter Date in format Year Year Year Year dash Month Month dash Day Day'
                 value={date}
                 onChangeText={value => setDate(value)}
                 style={styles.date}

@@ -28,7 +28,10 @@ const HomeScreen = () => {
       </View>
       <View style={styles.bottom}>
         <Pressable
-          style={styles.button}
+          accessible
+          accessibilityRole='button'
+          accessibilityLabel='Tap to start shopping'
+          accessibilityHint='Goes to lists screen'
           onPress={() => navigation.navigate('Start Shopping!')}>
           <Text style={styles.buttonText}>Start Shopping!</Text>
         </Pressable>
