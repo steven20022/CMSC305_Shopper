@@ -9,6 +9,7 @@ import ExistingListScreen from '../screens/ExistingList'
 import ExistingItemScreen from '../screens/ExistingItem';
 import AddListItem from '../screens/AddListItem';
 import ViewListItems from '../screens/ViewListItems';
+import SignUpScreen from '../screens/SignUp';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ const Router = props => {
         <Stack.Screen name={'Existing List'} component={ExistingListScreen}/>
         <Stack.Screen name={'Existing Item'} component={ExistingItemScreen}/>
         <Stack.Screen name={'View List Items'} component={ViewListItems}/>
+        <Stack.Screen name={'Sign Up'} component={SignUpScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
